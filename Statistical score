@@ -6,37 +6,38 @@ with open('report.txt') as f:
     data1 = [i for i in f.readlines() if i not in '姓名 语文 数学 英语 物理 化学 生物 政治 历史 地理\n']
     # data = data1.split()
     #计算总的和排序
-    for i in data1:
-        # score = []
-        sum = 0
-        sum2 = 0
-        score1 = i.split()  #['小赵', '73', '85', '80', '82', '93', '41', '64', '87', '55']
-        # print(score1)
-        for n in score1[1:]:
-            # print(n)
-            sum += int(n)
-            # print('sum',sum)
-        avg = sum / (len(score1)-1)
-        # print(avg)
-        # score2 = score1 + [sum,avg]
-        score2 = score1 + [('%s'% sum)]+ [('%.2f'% avg)]
-        # print(score2)
-        score.append(score2)
-    score = sorted(score,key=lambda s:s[-+1],reverse=True)  #排序
-    print(score)
-    # print(score[1][1])
-    #增加平均行
-    list1 = ['平均']
-    for k in range(1, 12):
-        sum3 = 0
-        for n in range(int(len(data1))):
-            # print(score[n][k])
-            dk = score[n][k]
-            sum3 += float(dk)
-        avg = sum3 / (int(len(data1)))
-        # print(avg)
-        list1.append('%.2f' % avg)
-        # print(list1)
+    
+for i in data1:
+    # score = []
+    sum = 0
+    sum2 = 0
+    score1 = i.split()  #['小赵', '73', '85', '80', '82', '93', '41', '64', '87', '55']
+    # print(score1)
+    for n in score1[1:]:
+        # print(n)
+        sum += int(n)
+        # print('sum',sum)
+    avg = sum / (len(score1)-1)
+    # print(avg)
+    # score2 = score1 + [sum,avg]
+    score2 = score1 + [('%s'% sum)]+ [('%.2f'% avg)]
+    # print(score2)
+    score.append(score2)
+score = sorted(score,key=lambda s:s[-+1],reverse=True)  #排序
+print(score)
+# print(score[1][1])
+#增加平均行
+list1 = ['平均']
+for k in range(1, 12):
+    sum3 = 0
+    for n in range(int(len(data1))):
+        # print(score[n][k])
+        dk = score[n][k]
+        sum3 += float(dk)
+    avg = sum3 / (int(len(data1)))
+    # print(avg)
+    list1.append('%.2f' % avg)
+    # print(list1)
 
 list1 = [list1] + score
 # print(list1)
